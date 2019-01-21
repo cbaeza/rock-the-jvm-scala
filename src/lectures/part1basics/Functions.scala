@@ -24,10 +24,13 @@ object Functions extends App {
   println(greeting("Carlos", 39))
 
   // 2. factorial function
-  def factorial(number:Int):Int = {
-    if(number > 1) factorial( number * (number-1)) else number
+  def factorial(number: Int): Int = {
+    if (number == 1)
+      number
+    else
+      number * factorial(number - 1)
   }
 
-  println(factorial(5))
+  println("Factorial: " + factorial(5))
 
 }
