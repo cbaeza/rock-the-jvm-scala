@@ -66,7 +66,54 @@ object Functions extends App {
       if (x <= 1) accumulator
       else factorialHelper(x - 1, x * accumulator)
     }
+
     factorialHelper(n, 1)
   }
+
   println("smartFactorial " + smartFactorial(120))
+
+  /** SMART ALGORITHM ***/
+
+  // 1. Concatenate a String n times
+  @tailrec
+  def smartConcatenation(aString: String, n: Int, accumulator: String): String = {
+    if (n <= 0) accumulator
+    else smartConcatenation(aString, n - 1, aString + accumulator)
+  }
+
+  println(smartConcatenation("Hello", 10, ""))
+
+
+  // 2. IsPrime function tail recursive
+  def smartIsPrime(n: Int): Boolean = {
+    @tailrec
+    def isPrimeUntil(t: Int, isStillPrime: Boolean): Boolean = {
+      if (!isStillPrime) false
+      else if (t <= 1) true
+      else isPrimeUntil(t - 1, n % t != 0 && isStillPrime)
+    }
+
+    isPrimeUntil(n / 2, true)
+  }
+
+  println("smartIsPrime 2: " + smartIsPrime(2))
+  println("smartIsPrime 3: " + smartIsPrime(3))
+  println("smartIsPrime 4: " + smartIsPrime(4))
+  println("smartIsPrime 5: " + smartIsPrime(5))
+  println("smartIsPrime 6: " + smartIsPrime(6))
+
+  // 3. Fibonacci function, tail recursive
+  def smartFibonacci(n: Int): Int = {
+    @tailrec
+    def fibonacciTailrec(i: Int, last: Int, nextToLast: Int): Int = {
+      if (i >= n) last
+      else fibonacciTailrec(i + 1, last + nextToLast, last)
+    }
+
+    if (n <= 2) 1
+    else fibonacciTailrec(2, 1, 1)
+  }
+
+  // 1 1 2 3 5 8 13 21 ...
+  println("smartFibonacci: " + smartFibonacci(8))
 }
