@@ -25,7 +25,6 @@ object Functions extends App {
 
   // 2. factorial function
   def factorial(number:Int):Int = {
-    val iteration:Int = 1
     if(number > 1) factorial( number * (number-1)) else number
   }
 
