@@ -32,7 +32,7 @@ object AbstractDataTypes extends App {
   cocodrile.eat
 
   // trait vs abstract classes
-  // 1 - traits do not have constructor paramaters
+  // 1 - traits do not have constructor parameters
   // 2 - multiple traits may be inherited by the same class -> Cocodrile
   // 3 - traits = behavior, abstract class = "things"
 }
