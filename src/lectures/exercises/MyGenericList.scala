@@ -11,6 +11,8 @@ package lectures.exercises
   *  trait List[A]    no (invariant)
   *  trait List[-A]   hell no! (contravariant)
   *
+  *  Bounded types:
+  *   T <: Car  mean all types T subtypes of Car
   * To implement:
   * head = first element of the list
   * tail = remainder of the list
